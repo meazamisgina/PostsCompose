@@ -1,18 +1,17 @@
 package com.practice.postscompose.model
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.practice.postscompose.repository.PostsRepository
+import com.practice.postscompose.repository.PostsRepositoryImpl
 import kotlinx.coroutines.launch
 
-class PostsViewModel: ViewModel() {
-    val postsRepository=PostsRepository()
-    val posts=MutableLiveData<List<Post>>()
+class PostsViewModel(val postsRepository: PostsRepository): ViewModel(){
+    val posts = MutableLiveData<List<Post>>()
     val uiState = MutableLiveData(UiState())
-    val post= MutableLiveData<Post>()
-    val comments= MutableLiveData<List<Comment>>()
+    val post = MutableLiveData<Post>()
+    val comments = MutableLiveData<List<Comment>>()
 
 
 

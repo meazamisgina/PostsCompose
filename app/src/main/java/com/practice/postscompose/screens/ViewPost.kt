@@ -27,9 +27,10 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.practice.postscompose.model.Comment
 import com.practice.postscompose.model.PostsViewModel
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun ViewPostScreen(postId: Int, viewModel: PostsViewModel = viewModel()) {
+fun ViewPostScreen(postId: Int, viewModel: PostsViewModel = koinViewModel()) {
     LaunchedEffect(Unit) {
         viewModel.fetchPostById(postId)
         viewModel.fetchComments(postId)
